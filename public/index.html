@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PubSub Push Notification</title>
+    <script>
+        window.onload = function (){
+            document.querySelector('#pubnubSimpleAndroid').addEventListener('click',()=>{
+                fetch('/pubnub/simpleNotification',{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({})
+                })
+            });
+            document.querySelector('#pubnubRetriveMessagesReadUnread').addEventListener('click',()=>{
+                fetch('/pubnub/getUnread_ReadMessages',{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({})
+                })
+            });
+            document.querySelector('#oneSignalSimpleAndroid').addEventListener('click',()=>{
+                fetch('/onesignal/simpleNotification',{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({})
+                })
+            });
+        }
+
+    </script>
+</head>
+<body>
+    <button style="display: block" id="pubnubSimpleAndroid">Push Simple Notification PubNub Android</button>
+    <button  style="display: block"id="oneSignalSimpleAndroid">Push Simple Notification OneSignal Android</button>
+    <button style="display: block" id="pubnubRetriveMessagesReadUnread">Retrive Notification PubNub Android</button>
+</body>
+</html>
